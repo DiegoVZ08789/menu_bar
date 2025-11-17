@@ -1,0 +1,172 @@
+/* =============== */
+/*   ESTILOS BASE  */
+/* =============== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1f2933 0, #111827 40%, #020617 100%);
+  color: #e5e7eb;
+}
+
+/* Opcional: separa un poco el contenido de las secciones */
+section {
+  padding: 80px 12%;
+  min-height: 60vh;
+}
+
+/* ========================= */
+/*   NAVBAR / MENU SUPERIOR  */
+/* ========================= */
+
+.menu-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 14px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    120deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(17, 24, 39, 0.95),
+    rgba(30, 64, 175, 0.9)
+  );
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* ============ */
+/*   LOGO       */
+/* ============ */
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f9fafb;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #22c55e, #16a34a);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+}
+
+/* ========================= */
+/*   ITEMS DEL MENÚ (UL/LI)  */
+/* ========================= */
+
+.menu-items {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items li {
+  position: relative;
+}
+
+/* ============================== */
+/*   LINKS DEL MENÚ (animaciones) */
+/* ============================== */
+
+.menu-items li a {
+  position: relative;
+  display: inline-block;
+  padding: 6px 2px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* subrayado animado */
+.menu-items li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #0ea5e9);
+  transition: width 0.25s ease;
+}
+
+/* hover bonito */
+.menu-items li a:hover {
+  color: #f9fafb;
+  transform: translateY(-2px);
+}
+
+.menu-items li a:hover::after {
+  width: 100%;
+}
+
+/* estado "activo" opcional si se lo agregas en React */
+.menu-items li a.active {
+  color: #facc15;
+}
+
+.menu-items li a.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, #f97316, #facc15);
+}
+
+/* ============================ */
+/*   RESPONSIVE (pantallas pequeñas) */
+/* ============================ */
+
+@media (max-width: 768px) {
+  .menu-bar {
+    padding: 10px 6%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .menu-items {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .menu-items li a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 18px;
+  }
+
+  .menu-items {
+    justify-content: center;
+  }
+
+  .menu-items li a {
+    font-size: 13px;
+  }
+}
